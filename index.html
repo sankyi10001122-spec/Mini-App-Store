@@ -1,201 +1,90 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AHP App Store - Data Checker</title>
-  <style>
-    :root {
-      --bg: #070b12;
-      --card-bg: #0e1624;
-      --accent: #00ff88;
-      --accent-dim: rgba(0, 255, 136, 0.15);
-      --text-main: #ffffff;
-      --text-muted: #8ca0b3;
-      --border: #1a293d;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-    body { background: var(--bg); color: var(--text-main); padding: 15px; max-width: 480px; margin: auto; }
-    
-    header { text-align: center; padding: 15px 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
-    header h1 { color: var(--accent); font-size: 22px; letter-spacing: 1px; text-shadow: 0 0 10px rgba(0,255,136,0.3); }
-    header p { color: var(--text-muted); font-size: 13px; margin-top: 5px; }
-
-    .search-box { width: 100%; padding: 12px 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--card-bg); color: #fff; margin-bottom: 20px; outline: none; }
-    .search-box:focus { border-color: var(--accent); }
-
-    /* App Card Style */
-    .app-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; transition: 0.2s; }
-    .app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    
-    .app-icon { width: 60px; height: 60px; border-radius: 14px; overflow: hidden; flex-shrink: 0; border: 1px solid var(--accent); background: #000; }
-    .app-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .app-info { flex: 1; }
-    .app-title { font-size: 17px; font-weight: bold; }
-    .app-meta { font-size: 12px; color: var(--accent); margin: 4px 0; }
-    .app-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
-    .dl-btn { background: linear-gradient(135deg, #00ff88, #00d2ff); color: #070b12; text-decoration: none; padding: 9px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; white-space: nowrap; }
-
-    /* Screenshot Preview Section */
-    .preview-section { margin-top: 25px; border-top: 1px solid var(--border); padding-top: 20px; }
-    .preview-title { font-size: 14px; font-weight: bold; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-    
-    .screenshot-container { width: 100%; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; background: #000; box-shadow: 0 4px 20px rgba(0,255,136,0.1); }
-    .screenshot-container img { width: 100%; height: auto; display: block; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <h1>AHP APP STORE</h1>
-    <p>ကိုယ်ပိုင် Android APK များစုစည်းရာ</p>
-  </header>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Mini App Store</h1>
+        </header>
 
-  <input type="text" id="searchInput" class="search-box" placeholder="App နာမည် ရိုက်ရှာပါ..." onkeyup="filterApps()">
+        <hr class="divider">
 
-  <div id="appList"></div>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" placeholder="App နာမည် ရှာကြည့်ပါ..." id="searchInput">
+        </div>
 
-  <!-- App Screenshot Preview Section -->
-  <div class="preview-section">
-    <div class="preview-title">📱 App Screenshot Preview</div>
-    <div class="screenshot-container">
-      <img src="1000142057.jpg" alt="Data Checker V3 Screenshot">
-    </div>
-  </div>
-
-  <script>
-    // App စာရင်းများ
-    const appsData = [
-      {
-        name: "Data Checker V3",
-        version: "v3.0",
-        size: "262.96K",
-        icon: "1000142063.png",
-        desc: "Starlink ရဲ့ Network Data လက်ကျန်များကို အချိန်နှင့်တပြေးညီ စစ်ဆေးရန်",
-        link: "https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file"
-      }
-    ];
-
-    const appList = document.getElementById("appList");
-
-    function renderApps(data) {
-      appList.innerHTML = data.map(app => `
+        <!-- App Card Section -->
         <div class="app-card">
-          <div class="app-icon">
-            <img src="${app.icon}" alt="${app.name} Logo">
-          </div>
-          <div class="app-info">
-            <div class="app-title">${app.name}</div>
-            <div class="app-meta">${app.version} • ${app.size}</div>
-            <div class="app-desc">${app.desc}</div>
-          </div>
-          <a href="${app.link}" class="dl-btn" target="_blank">Download</a>
+            <!-- Logo -->
+            <div class="app-logo">
+                <img src="https://i.ibb.co/6P0Z9QK/shield-logo.jpg" alt="Data Checker Logo" onerror="this.src='https://via.placeholder.com/70/0a192f/00ff88?text=Logo'">
+            </div>
+            
+            <!-- App Info -->
+            <div class="app-info">
+                <h2>Data Checker V3</h2>
+                <div class="app-meta">
+                    <span class="version">v3.0</span>
+                    <span class="dot">•</span>
+                    <span class="size">262.96K</span>
+                </div>
+                <p class="app-desc">Starlinkမှ Network Data လက်ကျန်များကို အချိန်နှင့် တပြေးညီ စစ်ဆေးရန်</p>
+            </div>
+
+            <!-- Download Button -->
+            <div class="download-btn-container">
+                <!-- ဒီနေရာမှာ သင့် Mediafire Link ကို ထည့်ထားပါတယ် -->
+                <a href="https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file" target="_blank" class="download-btn">Download</a>
+            </div>
         </div>
-      `).join("");
-    }
 
-    function filterApps() {
-      const q = document.getElementById("searchInput").value.toLowerCase();
-      const filtered = appsData.filter(app => app.name.toLowerCase().includes(q));
-      renderApps(filtered);
-    }
+        <hr class="divider">
 
-    renderApps(appsData);
-  </script>
-</body>
-</html>
+        <!-- Interface Preview Section -->
+        <div class="preview-section">
+            <h3>📱 APP INTERFACE PREVIEW</h3>
+            
+            <!-- Mimic App UI -->
+            <div class="app-ui-preview">
+                <div class="ui-header">
+                    <h4>Data Checker V3 <span class="v3-badge">V3</span></h4>
+                    <span class="battery">94% 🔋</span>
+                </div>
+                
+                <div class="status-online">
+                    <span class="dot-online"></span> SYSTEM ONLINE
+                </div>
 
-    /* Preview Section */
-    .preview-section { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
-    .preview-title { font-size: 14px; font-weight: bold; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-    
-    .mockup-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 15px; }
-    .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .badge { background: #00d2ff; color: #000; font-size: 10px; padding: 2px 6px; font-weight: bold; border-radius: 4px; }
-    .status-online { color: var(--accent); font-size: 11px; display: flex; align-items: center; gap: 5px; margin-bottom: 12px; }
-    .status-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 6px var(--accent); }
+                <div class="auth-box">
+                    <p>AUTHENTICATED USER</p>
+                    <h2>va23uhx</h2>
+                </div>
 
-    .user-box { background: #070b12; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 12px; }
-    .username { font-size: 16px; font-weight: bold; color: #fff; margin: 3px 0; }
-    
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .mini-card { background: #070b12; border: 1px solid var(--border); border-radius: 10px; padding: 10px; text-align: center; }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>AHP APP STORE</h1>
-    <p>ကိုယ်ပိုင် Android APK များစုစည်းရာ</p>
-  </header>
-
-  <input type="text" id="searchInput" class="search-box" placeholder="App နာမည် ရိုက်ရှာပါ..." onkeyup="filterApps()">
-
-  <div id="appList"></div>
-
-  <!-- App UI Preview Section -->
-  <div class="preview-section">
-    <div class="preview-title">📱 App Interface Preview</div>
-    <div class="mockup-box">
-      <div class="header-row">
-        <div style="font-weight: bold; font-size: 15px;">Data Checker V3 <span class="badge">V3</span></div>
-        <div style="font-size: 11px; color: var(--text-muted);">94% 🔋</div>
-      </div>
-      <div class="status-online"><div class="status-dot"></div> SYSTEM ONLINE</div>
-      <div class="user-box">
-        <div style="font-size: 10px; color: var(--text-muted);">AUTHENTICATED USER</div>
-        <div class="username">va23uhx</div>
-      </div>
-      <div class="grid-2">
-        <div class="mini-card">
-          <div style="color: var(--accent); font-size: 14px; font-weight: bold;">3.102 MB</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top:2px;">USED DATA</div>
+                <div class="data-grid">
+                    <div class="data-box">
+                        <h2 class="green-text">3.102 MB</h2>
+                        <p>USED DATA</p>
+                    </div>
+                    <div class="data-box">
+                        <h2 class="blue-text">861.648 MB</h2>
+                        <p>REMAINING</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mini-card">
-          <div style="color: #00d2ff; font-size: 14px; font-weight: bold;">861.648 MB</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top:2px;">REMAINING</div>
-        </div>
-      </div>
+
     </div>
-  </div>
 
-  <script>
-    // App စာရင်းများ
-    const appsData = [
-      {
-        name: "Data Checker V3",
-        version: "v3.0",
-        size: "262.96K",
-        icon: "📊",
-        desc: "Starlinkရဲ့Network Data လက်ကျန်များကို အချိန်နှင့်တပြေးညီ စစ်ဆေးရန်",
-        link: "https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file"
-      }
-    ];
-
-    const appList = document.getElementById("appList");
-
-    function renderApps(data) {
-      appList.innerHTML = data.map(app => `
-        <div class="app-card">
-          <div class="app-icon">${app.icon}</div>
-          <div class="app-info">
-            <div class="app-title">${app.name}</div>
-            <div class="app-meta">${app.version} • ${app.size}</div>
-            <div class="app-desc">${app.desc}</div>
-          </div>
-          <a href="${app.link}" class="dl-btn" target="_blank">Download</a>
-        </div>
-      `).join("");
-    }
-
-    function filterApps() {
-      const q = document.getElementById("searchInput").value.toLowerCase();
-      const filtered = appsData.filter(app => app.name.toLowerCase().includes(q));
-      renderApps(filtered);
-    }
-
-    renderApps(appsData);
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
