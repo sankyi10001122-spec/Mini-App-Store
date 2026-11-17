@@ -8,87 +8,73 @@
 body {
     background-color: #060b14;
     color: #ffffff;
-    display: flex;
-    justify-content: center;
-    padding: 20px 15px;
 }
 
-.container {
-    width: 100%;
-    max-width: 450px; 
-}
-
-/* Header */
-header {
+/* Play Store လို အပေါ်ခေါင်းစဉ် */
+.top-bar {
+    background-color: #0d1526;
+    padding: 15px;
     text-align: center;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #1a2332;
 }
 
-header h1 {
+.top-bar h1 {
     color: #00ff88;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
-/* Search Bar */
-.search-container input {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #0d1526;
-    border: 1px solid #1a2332;
-    border-radius: 20px;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    margin-bottom: 20px;
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 15px;
 }
 
-/* Play Store Style Card */
-.play-store-card {
-    background-color: #0d1526;
-    border: 1px solid #1a2332;
-    border-radius: 16px;
-    padding: 20px;
+/* App Detail Area */
+.app-detail {
     margin-bottom: 30px;
 }
 
-/* Logo နဲ့ Name */
-.app-header-row {
+.app-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.app-logo img {
-    width: 85px;
-    height: 85px;
+.app-logo {
+    width: 90px;
+    height: 90px;
     border-radius: 20px;
     object-fit: cover;
-    border: 1px solid #00ff88;
+    border: 1px solid #1a2332;
+    background-color: #000;
 }
 
 .app-title h2 {
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom: 5px;
     line-height: 1.2;
 }
 
-.developer-name {
+.developer {
     font-size: 14px;
-    color: #00b4d8; /* Play Store က link အရောင်လို */
+    color: #00b4d8;
 }
 
-/* Stats (Rating, Size, Version) */
-.app-stats-row {
+/* Stats Row (Rating, Size, Version) */
+.stats-row {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 25px;
-    padding: 0 10px;
+    background-color: #0d1526;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
-.stat-item {
+.stat-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +84,6 @@ header h1 {
 .stat-value {
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
 }
 
 .stat-label {
@@ -106,37 +91,37 @@ header h1 {
     color: #8892b0;
 }
 
-.stat-divider {
+.divider {
     width: 1px;
-    height: 30px;
+    height: 35px;
     background-color: #1a2332;
 }
 
-/* Download Button */
-.download-btn {
-    background: #00ff88;
-    color: #000;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: center;
+/* Download Button (Play Store Install ခလုတ်) */
+.btn-download {
     display: block;
-    transition: 0.2s;
+    width: 100%;
+    background-color: #00ff88;
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
     margin-bottom: 25px;
-    border-radius: 30px; /* Play store ခလုတ်လို ဝိုင်းဝိုင်း */
+    transition: 0.2s;
 }
 
-.download-btn:hover {
-    background: #00b4d8;
+.btn-download:hover {
+    background-color: #00b4d8;
 }
 
 /* About Section */
 .about-section h3 {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
-    color: #fff;
+    font-weight: 500;
 }
 
 .about-section p {
@@ -145,27 +130,29 @@ header h1 {
     line-height: 1.6;
 }
 
-/* Preview Section (Screenshot ပွတ်ကြည့်လို့ရအောင်) */
-.preview-section h3 {
-    font-size: 16px;
+/* Screenshot Section */
+.screenshot-section h3 {
+    font-size: 18px;
     margin-bottom: 15px;
-    color: #00ff88;
+    font-weight: 500;
 }
 
 .screenshot-scroll {
     display: flex;
     gap: 15px;
-    overflow-x: auto; /* ဘေးတိုက် ဆွဲကြည့်လို့ရမယ် */
+    overflow-x: auto;
     padding-bottom: 10px;
 }
 
+/* Scrollbar ဖျောက်ရန် */
 .screenshot-scroll::-webkit-scrollbar {
-    display: none; /* Scrollbar ဖျောက်ထားမယ် */
+    display: none;
 }
 
 .screenshot-scroll img {
-    height: 400px; /* အမြင့်သတ်မှတ် */
+    height: 450px;
     width: auto;
-    border-radius: 12px;
+    border-radius: 15px;
     border: 1px solid #1a2332;
+    object-fit: cover;
 }
