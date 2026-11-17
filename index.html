@@ -27,12 +27,84 @@
     /* App Card Style */
     .app-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; transition: 0.2s; }
     .app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .app-icon { width: 60px; height: 60px; border-radius: 14px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; font-size: 26px; color: var(--accent); flex-shrink: 0; border: 1px solid var(--accent); }
+    
+    .app-icon { width: 60px; height: 60px; border-radius: 14px; overflow: hidden; flex-shrink: 0; border: 1px solid var(--accent); background: #000; }
+    .app-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     .app-info { flex: 1; }
     .app-title { font-size: 17px; font-weight: bold; }
     .app-meta { font-size: 12px; color: var(--accent); margin: 4px 0; }
     .app-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
     .dl-btn { background: linear-gradient(135deg, #00ff88, #00d2ff); color: #070b12; text-decoration: none; padding: 9px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; white-space: nowrap; }
+
+    /* Screenshot Preview Section */
+    .preview-section { margin-top: 25px; border-top: 1px solid var(--border); padding-top: 20px; }
+    .preview-title { font-size: 14px; font-weight: bold; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .screenshot-container { width: 100%; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; background: #000; box-shadow: 0 4px 20px rgba(0,255,136,0.1); }
+    .screenshot-container img { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AHP APP STORE</h1>
+    <p>ကိုယ်ပိုင် Android APK များစုစည်းရာ</p>
+  </header>
+
+  <input type="text" id="searchInput" class="search-box" placeholder="App နာမည် ရိုက်ရှာပါ..." onkeyup="filterApps()">
+
+  <div id="appList"></div>
+
+  <!-- App Screenshot Preview Section -->
+  <div class="preview-section">
+    <div class="preview-title">📱 App Screenshot Preview</div>
+    <div class="screenshot-container">
+      <img src="1000142057.jpg" alt="Data Checker V3 Screenshot">
+    </div>
+  </div>
+
+  <script>
+    // App စာရင်းများ
+    const appsData = [
+      {
+        name: "Data Checker V3",
+        version: "v3.0",
+        size: "262.96K",
+        icon: "1000142063.png",
+        desc: "Starlink ရဲ့ Network Data လက်ကျန်များကို အချိန်နှင့်တပြေးညီ စစ်ဆေးရန်",
+        link: "https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file"
+      }
+    ];
+
+    const appList = document.getElementById("appList");
+
+    function renderApps(data) {
+      appList.innerHTML = data.map(app => `
+        <div class="app-card">
+          <div class="app-icon">
+            <img src="${app.icon}" alt="${app.name} Logo">
+          </div>
+          <div class="app-info">
+            <div class="app-title">${app.name}</div>
+            <div class="app-meta">${app.version} • ${app.size}</div>
+            <div class="app-desc">${app.desc}</div>
+          </div>
+          <a href="${app.link}" class="dl-btn" target="_blank">Download</a>
+        </div>
+      `).join("");
+    }
+
+    function filterApps() {
+      const q = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = appsData.filter(app => app.name.toLowerCase().includes(q));
+      renderApps(filtered);
+    }
+
+    renderApps(appsData);
+  </script>
+</body>
+</html>
 
     /* Preview Section */
     .preview-section { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
