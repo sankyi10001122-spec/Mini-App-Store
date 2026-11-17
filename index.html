@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini App Store</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
-        <!-- Header Section -->
+        <!-- Header -->
         <header>
             <h1>Mini App Store</h1>
         </header>
@@ -25,26 +24,29 @@
 
         <!-- App Card Section -->
         <div class="app-card">
-            <!-- Logo ပုံ (သင့်ပုံအစစ် logo.png ကို သုံးထားပါတယ်) -->
-            <div class="app-logo">
-                <img src="logo.png" alt="Data Checker Logo">
+            <div class="app-top-row">
+                <!-- Logo ပုံ -->
+                <div class="app-logo">
+                    <!-- logo.png ကို ဒီမှာ သုံးထားပါတယ် -->
+                    <img src="logo.png" alt="App Logo">
+                </div>
+                
+                <!-- App Name နဲ့ Version -->
+                <div class="app-header-info">
+                    <h2>Data Checker V3</h2>
+                    <div class="app-meta">
+                        <span class="version">v3.0</span>
+                        <span class="dot">•</span>
+                        <span class="size">262.96K</span>
+                    </div>
+                </div>
             </div>
             
-            <!-- App Info -->
-            <div class="app-info">
-                <h2>Data Checker V3</h2>
-                <div class="app-meta">
-                    <span class="version">v3.0</span>
-                    <span class="dot">•</span>
-                    <span class="size">262.96K</span>
-                </div>
-                <p class="app-desc">Starlinkမှ Network Data လက်ကျန်များကို အချိန်နှင့် တပြေးညီ စစ်ဆေးရန်</p>
-            </div>
-
+            <!-- App ဖော်ပြချက် -->
+            <p class="app-desc">Starlinkမှ Network Data လက်ကျန်များကို အချိန်နှင့် တပြေးညီ စစ်ဆေးရန်</p>
+            
             <!-- Download Button -->
-            <div class="download-btn-container">
-                <a href="https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file" target="_blank" class="download-btn">Download</a>
-            </div>
+            <a href="https://www.mediafire.com/file/aumh46qwus1wuwz/Data_Checker_1.6.apk/file" target="_blank" class="download-btn">Download APK</a>
         </div>
 
         <hr class="divider">
@@ -53,9 +55,9 @@
         <div class="preview-section">
             <h3>📱 APP INTERFACE PREVIEW</h3>
             
-            <!-- Screenshot ပုံအစစ်ကို ဒီမှာ ထည့်ထားပါတယ် -->
             <div class="screenshot-container">
-                <img src="screenshot.png" alt="Data Checker Screenshot">
+                <!-- screenshot.png ကို ဒီမှာ သုံးထားပါတယ် -->
+                <img src="screenshot.png" alt="App Screenshot">
             </div>
         </div>
 
